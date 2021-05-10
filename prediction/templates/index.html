@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+	<link rel="stylesheet"
+		href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+
+	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+
+			<h1 id="colorlib-logo" class="mb-4 mb-md-5"><a href="#"
+					style="background-image: url(/static/images/single.jpg);">Cibernético</a></h1>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li class="colorlib-active"><a href="{% url 'prediction:index' %}">Home</a></li>
+					<li><a href="{% url 'prediction:msignup' %}">Signup</a></li>
+					<li><a href="{% url 'prediction:mlogin' %}">Login</a></li>
+					<li><a href="{% url 'prediction:contact' %}">Contact</a></li>
+				</ul>
+			</nav>
+
+
+		</aside> END COLORLIB-ASIDE
+		<div id="colorlib-main">
+			<section class="ftco-section ftco-no-pt ftco-no-pb">
+				<div class="container px-md-0">
+					<div class="row d-flex no-gutters">
+						<div class="col-md-12 portfolio-wrap">
+							<div class="row no-gutters align-items-center">
+								<a href="/static/images/work-1.jpg"
+									class="col-md-6 img  js-fullheight d-flex align-items-center justify-content-center"
+									style="background-image: url(/static/images/work-1.jpg);">
+								</a>
+								<div class="col-md-6">
+									<div class="text pt-5 pl-0 px-lg-5 pl-md-4 ftco-animate">
+										<div class="px-4 px-lg-4">
+											<div class="desc">
+												<div class="top">
+													<h2 class="mb-4"><a style="color: rgb(255, 187, 0);">Precise Prediction</a></h2>
+												</div>
+												<div class="absolute">
+													<p>The AI Technologies We Use , Quite Literally,Prediction Machine
+														.They Use ALgorithms To Analyze Large Sets Of Data,In Order To
+														Optimize Towards A Goal. As They
+														Optimize,They Learn Over Time To Improve Their Result
+
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 portfolio-wrap">
+							<div class="row no-gutters align-items-center">
+								<a href="/static/images/work-2.jpeg"
+									class="col-md-6 order-md-last img js-fullheight d-flex align-items-center justify-content-center"
+									style="background-image: url(/static/images/work-2.jpeg);">
+								</a>
+								<div class="col-md-6">
+									<div class="text pt-5 px-md-5 ftco-animate">
+										<div class="px-4 px-lg-4">
+											<div class="desc text-md-right">
+												<div class="top">
+													<h2 class="mb-4"><a style="color: rgb(255, 187, 0);">Fast AI</a></h2>
+												</div>
+												<div class="absolute">
+													<p>The Technology We Develop Aims To Make Clinical Care Teams More
+														Efficent And Fast To Help Radiologists More Intelligently
+														Prioritize
+														Their Work By Pushing Cases That The AI Alogorithms Identify As
+														Critical To The Top Of Their Work List</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 portfolio-wrap">
+							<div class="row no-gutters align-items-center">
+								<a href="/static/images/work-3.jpg"
+									class="col-md-6 img  js-fullheight d-flex align-items-center justify-content-center"
+									style="background-image: url(/static/images/work-3.jpg);">
+								</a>
+								<div class="col-md-6">
+									<div class="text pt-5 pl-0 px-lg-5 pl-md-4 ftco-animate">
+										<div class="px-4 px-lg-4">
+											<div class="desc">
+												<div class="top">
+													<h2 class="mb-4"><a style="color: rgb(255, 187, 0);">Privacy</a></h2>
+												</div>
+												<div class="absolute">
+													<p>Privacy Is Something That We Maintain For The Good Of OurSelfes
+														And Others.
+														Secrecy We Keep To Separate OurSelves From Others Even Those We
+														Love
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="comment-form-wrap col-md-12 pt-5">
+							<h3 class="mb-5">Leave a comment</h3>
+							<form action="{% url 'prediction:index' %}" method="POST" class="p-3 p-md-5">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="name">Name </label>
+											<input type="text" class="form-control" name="name" value="" />
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="email">Email </label>
+											<input type="text" class="form-control" name="email" value="" />
+										</div>
+									</div>
+
+
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="message">Message</label>
+											<textarea cols="35" class="form-control" rows="8" name="message"
+												value=""></textarea>
+										</div>
+									</div>
+
+
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="submit" value="Submit" class="btn py-3 px-4 btn-primary">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+			</section>
+		</div>
+	</div>
+
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+	<script src="{% static 'js/scrollax.min.js' %}"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="{% static 'js/google-map.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% block content %}
+    
+    <div id="colorlib-page" style="background-color: black;">
+        <div id="colorlib-main">
+            <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+                <div class="container-fluid px-0">
+                    <div class="row d-flex">
+                        <div class="col-md-6 d-flex">
+                            <div class="img d-flex align-self-stretch align-items-center js-fullheight"
+                                style="background-image:url(/static/images/lab.jpg);">
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center" style="background-color: black;">
+                            <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+                                <div>
+                                    <div class="container">
+                                        <div>
+                                            <h2 class="mb-4">L<span>a</span>b</h2>
+                                            <form method="POST" action="{% url 'prediction:lab' user.id %}" novalidate>
+                                                {% csrf_token %}
+                                                <table>
+                                                    <tr>
+                                                        <td>{{form.as_table}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td colspan="3"><input type="submit" name="submit" value="login" class="btn btn-success"></td>
+                                                    </tr>
+                                                </table>
+                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex align-items-center">
+                                        <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+</body>
+
+</html>

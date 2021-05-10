@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load static %}
+<html>
+
+<head>
+
+	<title>Patient data print</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css"
+		href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+
+</head>
+
+<body>
+	<style type="text/css">
+		.msg {
+			padding: 10px;
+			background: #222;
+			position: relative;
+		}
+
+		.msg h1 {
+			color: rgb(0, 0, 0);
+		}
+
+		.msg a {
+			margin-left: 20px;
+			background: #408814;
+			color: white;
+			padding: 4px 8px;
+			text-decoration: none;
+		}
+
+		.msg a:hover {
+			background: #266400;
+		}
+
+		/* //-- yui-grids style overrides -- */
+		body {
+			font-family: Georgia;
+			color: #444;
+		}
+
+		#inner {
+			padding: 10px 80px;
+			margin: 80px auto;
+			background: #000000;
+			border: solid #666;
+			border-width: 8px 0 2px 0;
+		}
+
+		.yui-gf {
+			margin-bottom: 2em;
+			padding-bottom: 2em;
+			border-bottom: 1px solid rgb(0, 0, 0);
+		}
+
+		/* //-- header, body, footer -- */
+		#hd {
+			margin: 2.5em 0 3em 0;
+			padding-bottom: 1.5em;
+			border-bottom: 1px solid #ccc
+		}
+
+		#hd h2 {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		#bd,
+		#ft {
+			margin-bottom: 2em;
+		}
+
+		/* //-- footer -- */
+		#ft {
+			padding: 1em 0 5em 0;
+			font-size: 92%;
+			border-top: 1px solid rgb(0, 0, 0);
+			text-align: center;
+		}
+
+		#ft p {
+			margin-bottom: 0;
+			text-align: center;
+		}
+
+		/* //-- core typography and style -- */
+		#hd h1 {
+			font-size: 48px;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+		}
+
+		h2 {
+			font-size: 152%
+		}
+
+		h3,
+		h4 {
+			font-size: 122%;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4 {
+			color: #333;
+		}
+
+		p {
+			font-size: 100%;
+			line-height: 18px;
+			padding-right: 3em;
+		}
+
+		a {
+			color: #990003
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+
+		strong {
+			font-weight: bold;
+		}
+
+		li {
+			line-height: 24px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		p.enlarge {
+			font-size: 144%;
+			padding-right: 6.5em;
+			line-height: 24px;
+		}
+
+		p.enlarge span {
+			color: #000
+		}
+
+		.contact-info {
+			margin-top: 7px;
+		}
+
+		.first h2 {
+			font-style: italic;
+		}
+
+		.last {
+			border-bottom: 0
+		}
+
+
+		/* //-- section styles -- */
+
+		a#pdf {
+			display: block;
+			float: left;
+			background: #666;
+			color: white;
+			padding: 6px 50px 6px 12px;
+			margin-bottom: 6px;
+			text-decoration: none;
+		}
+
+		a#pdf:hover {
+			background: #222;
+		}
+
+		.job {
+			position: relative;
+			margin-bottom: 1em;
+			padding-bottom: 1em;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.job h4 {
+			position: absolute;
+			top: 0.35em;
+			right: 0
+		}
+
+		.job p {
+			margin: 0.75em 0 3em 0;
+		}
+
+		.last {
+			border: none;
+		}
+
+		.skills-list {}
+
+		.skills-list ul {
+			margin: 0;
+		}
+
+		.skills-list li {
+			margin: 3px 0;
+			padding: 3px 0;
+		}
+
+		.skills-list li span {
+			font-size: 152%;
+			display: block;
+			margin-bottom: -2px;
+			padding: 0
+		}
+
+		.talent {
+			width: 32%;
+			float: left
+		}
+
+		.talent h2 {
+			margin-bottom: 6px;
+		}
+
+		#srt-ttab {
+			margin-bottom: 100px;
+			text-align: center;
+		}
+
+		#srt-ttab img.last {
+			margin-top: 20px
+		}
+
+		/* --// override to force 1/8th width grids -- */
+		.yui-gf .yui-u {
+			width: 80.2%;
+		}
+
+		.yui-gf div.first {
+			width: 12.3%;
+		}
+	</style>
+
+	<div id="doc2" class="yui-t7" style="font-size: 12px;">
+		<div id="inner"
+			style="font-size: 14px;line-height: 35px;letter-spacing: 5.79px;font-weight: 900;font-style: normal;border-top-width: 5px;border-left-width: 5px;border-right-width: 5px;border-bottom-width: 5px;padding-right: 300px;margin-right: 200px;margin-left: 200px;">
+
+			<div id="hd">
+				<div class="yui-gc">
+					<div class="yui-u first">
+						<h1>Cibern<span style="color: rgb(255, 218, 9);">é</span>tico</h1>
+						<h2>VIRTUAL <span style="">AI</span> ASSISTED DOCTOR</h2>
+					</div>
+					<div class="yui-u">
+						<div class="contact-info">
+							<h3><a href="mailto:cibernético@doc.com" style="color:#333333">cibernético@doc.com</a></h3>
+							<h3 style="color: #333333;">+39 (24) 0041 7959 570</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bd">
+				<div id="yui-main">
+					<div class="yui-b">
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h3 style="color: rgb(255, 218, 9);"><span
+										style="color: white;">[</span>{{user.Date}}<span
+										style="color: white;">]</span><span
+										style="color: white;">[</span>{{user.Time}}<span style="color: white;">]</span>
+								</h3>
+								<h2 style="color: rgb(255, 255, 255);">Details::</h2>
+								<p><img src="{{user.PatientImage.url}}" width="100" height="120" alt="{{user.Name}}">
+								</p>
+							</div>
+							<div class="yui-u">
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">Name::</h2>
+									<b style="color: rgb(255, 218, 9);">{{user.Name}}</b>
+								</div>
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">Age::</h2>
+									<p><b style="color: rgb(255, 218, 9);">{{user.Age}}</b></p>
+								</div>
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">BloodGroup</h2>
+									<p><b style="color: rgb(255, 218, 9);">{{user.BloodGroup}}</b></p>
+								</div>
+							</div>
+						</div>
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h2></h2>
+							</div>
+							<div class="yui-u">
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">Address::</h2>
+									<p><b style="color: rgb(255, 218, 9);">{{user.Place}}</b></p>
+									<p><b style="color: rgb(255, 218, 9);">{{user.PhoneNumber}}</b></p>
+								</div>
+							</div>
+						</div>
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h2 style="color: #080808;">Medical Details</h2>
+							</div>
+							<div class="yui-u">
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">Scanned For::</h2>
+									<p><b style="color: rgb(255, 218, 9);">{{user.ScanType}}</b></p>
+								</div>
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">Scan Result::</h2>
+									{% if user.GeneratedResult == 'Positive(+ve)' and user.XrayImage %}
+									<p><b style="color: red;">{{user.GeneratedResult}}</b></p>
+									{% elif user.GeneratedResult == 'Negative(-ve)' and user.XrayImage %}
+									<p><b style="color: #09ff00;">{{user.GeneratedResult}}</b></p>
+									{% else %}
+									<p><b style="color: rgb(255, 218, 9);">Server Error</b></p>
+									{% endif %}
+
+								</div>
+								<div class="talent">
+									<h2 style="color: rgb(255, 255, 255);">XrayImage::</h2>
+
+									{% if user.XrayImage %}
+									<p><img src="{{user.XrayImage.url}}" width="100" height="120" alt="{{user.Name}}">
+									</p>
+									{% else %}
+									<img alt="XrayNot_Uploaded">
+									{% endif %}
+
+
+								</div>
+
+							</div>
+						</div>
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h2></h2>
+							</div>
+							<div class="yui-u">
+
+								<div class="job last">
+									<h2></h2>
+									<h3></h3>
+									<h4></h4>
+									<p></p>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="yui-gf last">
+							<div class="yui-u first">
+								<h2> </h2>
+							</div>
+							<div class="yui-u">
+								<h2 style="color: #ffffff;font-size:large">Doctor Result: :<span
+										style="color: rgb(255, 218, 9);font-size:large">{{user.DocResult}}</span></h2>
+								<h2 style="color: #ffffff;font-size:large">Doctor Number: :<span
+										style="color: rgb(255, 218, 9);font-size:large">{{user.DocNumber}}</span></h2>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div style="text-align: center;" id="ft">
+				<p style="color: #333333;font-size: 107%;line-height: 27px;letter-spacing: 2.83px;font-style: italic;">
+					<span style="color: rgb(255, 218, 9);"><span
+							style="color: rgb(255, 218, 9);">{{user.HospitalName}}</span> &mdash;
+						<a href="mailto:name@yourdomain.com" style="color: #333333;">{{user.HospitalEmail}}</a> &mdash;
+						{{user.HospitalNumber}}
+				</p>
+
+			</div>
+			<div style="text-align: 500px;">
+				<img src="/static/images/f2005e99752d4916a4a3fa670da9e1b4.png" style="opacity: 0.5;">
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

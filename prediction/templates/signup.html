@@ -1,0 +1,55 @@
+{% extends 'mainbase.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <style>
+        ul li {
+            list-style: none;
+            display: inline;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+    {% block content %}
+    <div class="container">
+        <div>
+            <h2 class="mb-4">S<span>i</span>gnup</h2>
+            <form method="POST" action="{% url 'prediction:msignup' %}" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>{{form.as_table}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td colspan="3"><input type="submit" name="submit" value="Register" class="btn btn-success">
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+        <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+            <p><a href="{% url 'prediction:mlogin' %}" style="font-size: 11px;">Already have account</a></p>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

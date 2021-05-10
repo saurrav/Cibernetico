@@ -1,0 +1,60 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block content %}
+        <div id="colorlib-main" style="background-color: black;">
+            <section class="ftco-section ftco-no-pt ftco-no-pb">
+                <div class="container px-md-0">
+                    <div class="row d-flex no-gutters">
+                        <div class="col-md-12 portfolio-wrap-2">
+                            <div class="row no-gutters align-items-center" >
+                                
+                            {% for i in news %}
+                            <div class="col-md-4">
+                                <div href="#" class="img w-100 js-fullheight d-flex align-items-center"
+                                    style="background-image: url({{i.Image.url}});">
+                                    <div class="text p-4 p-md-5 ftco-animate">
+                                        <div class="desc">
+                                            <div class="top">
+                                                <span class="subheading">News</span>
+                                                <h2 class="mb-4">
+                                                    <a style="font-size: 40px; text-shadow: 2px 2px 8px #050505;">
+                                                        {{i.News_name}}
+                                                    </a>
+                                                </h2>
+                                                <p><a href="{% url 'prediction:single' i.id %}" class="custom-btn"
+                                                        style="color: black;">View News</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                            </div>
+    
+                        </div>
+    
+                    
+                    </div>
+                
+                </div>
+            </section>
+        </div>
+        </div>
+    
+        <!-- loader -->
+        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+                <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+                <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                    stroke="#F96D00" />
+            </svg></div>
+
+    {% endblock %}
+    </body>
+</html>

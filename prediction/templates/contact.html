@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+	<title>Contact</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+	<link rel="stylesheet"
+		href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+
+	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+
+			<h1 id="colorlib-logo" class="mb-4 mb-md-5"><a href="index.html"
+					style="background-image: url(/static/images/bg_1.jpg);">Cibernético</a></h1>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="{% url 'prediction:msignup' %}">SIGNUP</a></li>
+					<li><a href="{% url 'prediction:mlogin' %}">LOGIN</a></li>
+					<li><a href="{% url 'prediction:contact' %}">CONTACT</a></li>
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer">
+			</div>
+		</aside>
+		<div id="colorlib-main" class="text p-4 ftco-animate" style="background-image: url(/static/images/doc.jpg);">
+			<section class="ftco-section ftco-no-pt ftco-no-pb">
+				<div class="container px-md-0">
+					<div class="row d-flex no-gutters">
+						<div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+							<div class="contact-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4 heading" style="font-size: medium;">Contact</h3>
+								<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<h3><label class="label" for="name"
+														style="font-size: larger;">Cibern<span
+															style="color: rgb(255, 218, 9);">é</span>tico</label></h3>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="subject">
+													<h3 style="color:#707070;">+39 (24) 0041 7959 570</h3>
+												</label>
+
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="email" style="font-size: larger" ;>
+													<a href="mailto:cibernético@doc.com"
+														style="color: #707070;">cibernético@doc.com</a>
+												</label>
+
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="#">VIRTUAL AI DOCTOR</label>
+
+											</div>
+										</div>
+
+									</div>
+								</form>
+							</div>
+						</div >
+						<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px" >
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+	<script src="{% static 'js/scrollax.min.js' %}"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="{% static 'js/google-map.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

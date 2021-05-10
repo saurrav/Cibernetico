@@ -1,0 +1,188 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* ::-webkit-scrollbar{
+            width: 25px;
+        }
+        ::-webkit-scrollbar-track{
+            border: 7px solid red;
+            box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0,0.5);
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(45deg,#06dee1,#79ff6c); border-radius: 3px; 
+        } */
+        .body1 {
+            height: 1500px;
+            background-color: grey;
+        }
+
+        .body1::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        .body1::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .body1::-webkit-scrollbar-thumb {
+            background-color: orange;
+            border-radius: 10px;
+        }
+
+        .div1 {
+            margin-top: 200px;
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-family: helvetica;
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %}
+
+    <div id="colorlib-page">
+        <div id="colorlib-main">
+            <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+                <div class="container-fluid px-0">
+                    <div class="row d-flex">
+                        <div class="col-md-6 d-flex">
+                            <!-- <h1 >Patient Forum</h1> -->
+                            <div class=" img d-flex align-self-stretch js-fullheight">
+                                {% csrf_token %}
+                                <div style="background-color: rgb(0, 0, 0);
+                                overflow: auto;" class="body1 div1">
+                                    <table class="table">
+                                        <thead>
+                                            <!-- 6.1444 -->
+                                            <th>
+                                                <h3 style="color:gold;">Name</h3>
+                                            </th>
+                                            <th>
+                                                <h3>Age</h3>
+                                            </th>
+                                            <th>
+                                                <h3>Ph_No</h3>
+                                            </th>
+                                            <th>
+                                                <h3 style="letter-spacing: 10px;">Options</h3>
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            {% for patients in ur.all|dictsort:"Age" %}
+                                            {% if patients.DocNumber == user.DocNumber %}
+                                            <tr>
+                                                <td style="color: rgb(255, 255, 255);">{{patients.Name}}</td>
+                                                <td style="color: rgb(255, 255, 255);">{{patients.Age}}</td>
+                                                <td style="color: rgb(255, 255, 255);">{{patients.PhoneNumber}}</td>
+                                                <td>
+                                                    <a href="/opedit/{{patients.id}}">EDIT</a>
+
+                                                </td>
+
+
+
+
+                                            </tr>
+                                            {% endif %}
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <h5 style="text-align: center; color: rgb(255, 218, 9);">logined_as::<span
+                                    style="color: white">
+                                    {{user.OpUserName}}
+
+                                </span></h5>
+
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+                                <div>
+
+                                    <div class="container">
+                                        <div>
+                                            <h2 class="mb-4">Patient Data<span
+                                                    style="color: rgb(255, 187, 0);">E</span>dit: :</h2>
+                                            <form method="POST" action="{% url 'prediction:opedit' user.id %}"
+                                                enctype="multipart/form-data" novalidate>
+                                                {% csrf_token %}
+
+                                                <table>
+                                                    <tr>
+                                                        <td style="font-size: medium;"></td>
+
+                                                        <td><a href="{{user.PatientImage.url}}"><img src="{{user.PatientImage.url}}" width="100"
+                                                                height="120" alt="{{user.Name}}"></a></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>{{form.as_table}}</td><br>
+
+
+                                                    </tr>
+                                                    <tr style="visibility: hidden;">
+                                                        <td><input name="Rid" value="{{user.Redirect_id}}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="color: rgb(255, 187, 0);"><input type="submit"
+                                                                name="submit" value="submit" class="btn btn-warning">
+                                                        </td>
+
+                                                    </tr>
+
+
+                                                </table>
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <div class="col-md-6 d-flex align-items-center">
+                                            <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
